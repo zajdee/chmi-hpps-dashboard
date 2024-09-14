@@ -9,6 +9,10 @@ It consumes the [CHMI hydrology open data](https://opendata.chmi.cz/hydrology/no
 2. Import the dashboard (it uses the default Infinity data source name)
 3. Select the flow/measuring station of your wish and watch the data
 
+# Dashboard demo
+
+![dashboard demo](images/dashboard.png)
+
 # Under the hood
 
 The [Infinity data source](https://grafana.com/docs/plugins/yesoreyeram-infinity-datasource/latest/) plugin
