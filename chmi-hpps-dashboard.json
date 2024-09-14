@@ -1,0 +1,819 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_INFINITY",
+      "label": "Infinity",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "yesoreyeram-infinity-datasource",
+      "pluginName": "Infinity"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.2.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "yesoreyeram-infinity-datasource",
+      "name": "Infinity",
+      "version": "2.9.6"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "9",
+              "text": "spa1",
+              "type": "string"
+            },
+            {
+              "selector": "10",
+              "text": "spa2",
+              "type": "string"
+            },
+            {
+              "selector": "11",
+              "text": "spa3",
+              "type": "string"
+            },
+            {
+              "selector": "12",
+              "text": "spa4",
+              "type": "string"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "$filter(data.data.values, function($v, $i, $a) {\n $v[0] = ${loc:singlequote}\n})",
+          "source": "url",
+          "type": "json",
+          "url": "${metadata}",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Thresholds for Water levels",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "15",
+              "text": "spa1",
+              "type": "string"
+            },
+            {
+              "selector": "16",
+              "text": "spa2",
+              "type": "string"
+            },
+            {
+              "selector": "17",
+              "text": "spa3",
+              "type": "string"
+            },
+            {
+              "selector": "18",
+              "text": "spa4",
+              "type": "string"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [
+            {
+              "field": "loc",
+              "operator": "equals",
+              "value": [
+                "${loc}"
+              ]
+            }
+          ],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "$filter(data.data.values, function($v, $i, $a) {\n $v[0] = ${loc:singlequote}\n})",
+          "source": "url",
+          "type": "json",
+          "url": "${metadata}",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Thresholds for Flow rate",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "cm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 19,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "dt",
+              "text": "Time",
+              "timestampFormat": "2006-01-02T15:04:05Z07:00",
+              "type": "timestamp"
+            },
+            {
+              "selector": "value",
+              "text": "Value",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "Level",
+          "root_selector": "objList.tsList[unit = \"CM\"].tsData",
+          "source": "url",
+          "type": "json",
+          "url": "https://opendata.chmi.cz/hydrology/now/data/$loc.json",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        },
+        {
+          "columns": [
+            {
+              "selector": "9",
+              "text": "spa1",
+              "type": "number"
+            },
+            {
+              "selector": "10",
+              "text": "spa2",
+              "type": "number"
+            },
+            {
+              "selector": "11",
+              "text": "spa3",
+              "type": "number"
+            },
+            {
+              "selector": "12",
+              "text": "spa4",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "trace",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "SPA",
+          "root_selector": "$filter(data.data.values, function($v, $i, $a) {\n $v[0] = ${loc:singlequote}\n})",
+          "source": "url",
+          "type": "json",
+          "url": "${metadata}",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Water level",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "Level"
+            },
+            "configRefId": "SPA",
+            "mappings": [
+              {
+                "fieldName": "spa1",
+                "handlerArguments": {
+                  "threshold": {
+                    "color": "blue"
+                  }
+                },
+                "handlerKey": "threshold1",
+                "reducerId": "lastNotNull"
+              },
+              {
+                "fieldName": "spa2",
+                "handlerArguments": {
+                  "threshold": {
+                    "color": "orange"
+                  }
+                },
+                "handlerKey": "threshold1"
+              },
+              {
+                "fieldName": "spa3",
+                "handlerKey": "threshold1"
+              },
+              {
+                "fieldName": "spa4",
+                "handlerArguments": {
+                  "threshold": {
+                    "color": "purple"
+                  }
+                },
+                "handlerKey": "threshold1"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "m3/s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 19,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "dt",
+              "text": "Time",
+              "timestampFormat": "2006-01-02T15:04:05Z07:00",
+              "type": "timestamp"
+            },
+            {
+              "selector": "value",
+              "text": "Value",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "Rate",
+          "root_selector": "objList.tsList[unit = \"M3_S\"].tsData",
+          "source": "url",
+          "type": "json",
+          "url": "https://opendata.chmi.cz/hydrology/now/data/$loc.json",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        },
+        {
+          "columns": [
+            {
+              "selector": "15",
+              "text": "spa1",
+              "type": "number"
+            },
+            {
+              "selector": "16",
+              "text": "spa2",
+              "type": "number"
+            },
+            {
+              "selector": "17",
+              "text": "spa3",
+              "type": "number"
+            },
+            {
+              "selector": "18",
+              "text": "spa4",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "trace",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "SPA",
+          "root_selector": "$filter(data.data.values, function($v, $i, $a) {\n $v[0] = ${loc:singlequote}\n})",
+          "source": "url",
+          "type": "json",
+          "url": "${metadata}",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Flow rate",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "Rate"
+            },
+            "configRefId": "SPA",
+            "mappings": [
+              {
+                "fieldName": "spa1",
+                "handlerArguments": {
+                  "threshold": {
+                    "color": "blue"
+                  }
+                },
+                "handlerKey": "threshold1"
+              },
+              {
+                "fieldName": "spa2",
+                "handlerArguments": {
+                  "threshold": {
+                    "color": "orange"
+                  }
+                },
+                "handlerKey": "threshold1"
+              },
+              {
+                "fieldName": "spa3",
+                "handlerKey": "threshold1"
+              },
+              {
+                "fieldName": "spa4",
+                "handlerArguments": {
+                  "threshold": {
+                    "color": "purple"
+                  }
+                },
+                "handlerKey": "threshold1"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "${DS_INFINITY}"
+        },
+        "definition": "Infinity- (infinity) json",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Flow/station",
+        "multi": false,
+        "name": "loc",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [
+              {
+                "selector": "0",
+                "text": "__value",
+                "type": "string"
+              },
+              {
+                "selector": "2",
+                "text": "city",
+                "type": "string"
+              },
+              {
+                "selector": "3",
+                "text": "flow",
+                "type": "string"
+              }
+            ],
+            "computed_columns": [
+              {
+                "selector": "flow + \": \" + city",
+                "text": "__text",
+                "type": "string"
+              }
+            ],
+            "filters": [],
+            "format": "table",
+            "parser": "backend",
+            "refId": "variable",
+            "root_selector": "data.data.values",
+            "source": "url",
+            "type": "json",
+            "url": "${metadata}",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "${DS_INFINITY}"
+        },
+        "definition": "Infinity- (infinity) json",
+        "description": "Current date in UTC, to be used for CHMI metadata file location",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "date",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "filters": [],
+            "format": "table",
+            "parser": "backend",
+            "refId": "variable",
+            "root_selector": "$fromMillis($toMillis($now()), \"[Y0001][M01][D01]\")",
+            "source": "url",
+            "type": "json",
+            "url": "",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "https://opendata.chmi.cz/hydrology/now/metadata/meta1-20240914.json",
+          "value": "https://opendata.chmi.cz/hydrology/now/metadata/meta1-20240914.json"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "metadata",
+        "options": [
+          {
+            "selected": true,
+            "text": "https://opendata.chmi.cz/hydrology/now/metadata/meta1-20240914.json",
+            "value": "https://opendata.chmi.cz/hydrology/now/metadata/meta1-20240914.json"
+          }
+        ],
+        "query": "https://opendata.chmi.cz/hydrology/now/metadata/meta1-${date}.json",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "HPPS",
+  "uid": "bdxut57rhro5cd",
+  "version": 11,
+  "weekStart": ""
+}
